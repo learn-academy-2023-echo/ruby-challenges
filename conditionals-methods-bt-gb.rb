@@ -94,13 +94,13 @@ def log_in (user, password)
         p 'Your user name and password can not be the same'
     elsif user.length <6 || password.length <6
         p 'Your user and password must be more than 6 characters'
-    elsif !password.includes?('#!$')
+    elsif !['#', '!', '$'].any? { |value| password.include?(value) }
         p "Your password must contain either #, !, or $"
-    elsif user.includes?('#!$ ')
-        p "Your uername must not contain #, !, $ or any spaces"
+    elsif ['#', '!', '$', ' '].any? { |value| user.include?(value) }
+        p "Your username must not contain #, !, $ or any spaces"
     elsif password == 'password'
         p 'Your password can not be password!'
-    elsif !password.includes?('1234567890')
+    elsif !password.include?('1234567890')
         p 'Your password must contain a number'
     end
 end
