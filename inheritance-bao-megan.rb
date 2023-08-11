@@ -22,8 +22,9 @@
   # As a developer, if my Salmon reaches the ripe old age of 4, I can make it die peacefully after a full and happy life.✅
   class Animal
     attr_accessor :age, :alive
-    def initialize(age)
+    def initialize(age, type)
       @age = age
+      @type = type
       @alive = true
     end
   
@@ -56,19 +57,52 @@
   
   fish1 = Salmon.new(0, "Sockeye")
   fish1.increment_age_by(3)
-  p fish1.show_info
+  # p fish1.show_info
   
   # Hint: You will need a method that changes the status of alive in the initialize method of Animal.
-  # As a developer, I can create a Mammal that inherits from Animal.
-  # As a developer, I can initialize all of my Mammals to be warm_blooded.
-  # As a developer, I can create a Bear that inherits from Mammal.
-  # As a developer, I can age my Bear up.
-  # As a developer, I can see a message that tells me all of my Bear's information.
-  # As a developer, if my Bear turns 20 years old, I can make it die peacefully after a full and happy life.
-# Hint: You will need a method that changes the status of alive in the initialize method of Animal.
-# As a developer, I can create a Mammal of my choice.
-# As a developer, I can interact with the new Mammal via various methods.
-# As a developer, I can see a message that tells me all of my new Mammal's information.
+  # As a developer, I can create a Mammal that inherits from Animal. ✅
+  # As a developer, I can initialize all of my Mammals to be warm_blooded. ✅
+  # As a developer, I can create a Bear that inherits from Mammal. ✅
+  # As a developer, I can age my Bear up. ✅
+  # As a developer, I can see a message that tells me all of my Bear's information. ✅
+  # As a developer, if my Bear turns 20 years old, I can make it die peacefully after a full and happy life. ✅
+  # Hint: You will need a method that changes the status of alive in the initialize method of Animal.✅
+  # As a developer, I can create a Mammal of my choice. ✅
+  # As a developer, I can interact with the new Mammal via various methods.
+  # As a developer, I can see a message that tells me all of my new Mammal's information.
+
+  class Mammal < Animal
+    attr_accessor :age, :warm_blooded
+    def intitialize(age, type)
+      super(age, type)
+      @warm_blooded = true
+    end
+  end
+  
+  class Bear < Mammal
+    def initialize(age)
+      super(age)
+      @warm_blooded = true 
+    end
+
+    def show_info
+      if @age > 20
+      "Buddy Bear peaced out to the other side."
+      elsif @warm_blooded && @alive 
+      "Buddy Bear is #{@age} and he is warm blooded."
+      end
+    end
+  end
+ 
+  brown_bear = Bear.new(0)
+  p brown_bear
+  brown_bear.increment_age_by(21)
+  p brown_bear.show_info
+  # p fish1.show_info
+  
+monkey = Mammal.new(5, "chimp")
+p monkey
+
 
 
 # 🏔 Stretch Goals
