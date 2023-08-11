@@ -20,11 +20,11 @@
   # As a developer, I can age my Salmon up.✅
   # As a developer, I can see a message that tells me all of my Salmon's information.✅
   # As a developer, if my Salmon reaches the ripe old age of 4, I can make it die peacefully after a full and happy life.✅
+
   class Animal
     attr_accessor :age, :alive
-    def initialize(age, type)
+    def initialize(age)
       @age = age
-      @type = type
       @alive = true
     end
   
@@ -73,15 +73,16 @@
 
   class Mammal < Animal
     attr_accessor :age, :warm_blooded
-    def intitialize(age, type)
-      super(age, type)
+    def initialize(age, type)
+      super(age)
+      @type = type
       @warm_blooded = true
     end
   end
   
   class Bear < Mammal
-    def initialize(age)
-      super(age)
+    def initialize(age, type)
+      super(age, type)
       @warm_blooded = true 
     end
 
@@ -94,7 +95,7 @@
     end
   end
  
-  brown_bear = Bear.new(0)
+  brown_bear = Bear.new(0, "brown bear")
   p brown_bear
   brown_bear.increment_age_by(21)
   p brown_bear.show_info
