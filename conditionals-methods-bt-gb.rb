@@ -89,24 +89,25 @@
 # Password cannot be the word "password".
 # User password must contain at least one number.
 
-def log_in (user, password)
-    if user == password
-        p 'Your user name and password can not be the same'
-    elsif user.length <6 || password.length <6
-        p 'Your user and password must be more than 6 characters'
-    elsif !password.includes?('#!$')
-        p "Your password must contain either #, !, or $"
-    elsif user.includes?('#!$ ')
-        p "Your uername must not contain #, !, $ or any spaces"
-    elsif password == 'password'
-        p 'Your password can not be password!'
-    elsif !password.includes?('1234567890')
-        p 'Your password must contain a number'
-    end
-end
+# def log_in (user, password)
+#     if user == password
+#         p 'Your user name and password can not be the same'
+#     elsif user.length <6 || password.length <6
+#         p 'Your user and password must be more than 6 characters'
+#     elsif !password.includes?('#!$')
+#         p "Your password must contain either #, !, or $"
+#     elsif user.includes?('#!$ ')
+#         p "Your uername must not contain #, !, $ or any spaces"
+#     elsif password == 'password'
+#         p 'Your password can not be password!'
+#     elsif !password.includes?('1234567890')
+#         p 'Your password must contain a number'
+#     end
+# end
 
-p 'enter user name'
-user_name = gets.chomp
-p 'enter your password'
-password = gets.chomp
+# p 'enter user name'
+# user_name = gets.chomp
+# p 'enter your password'
+# password = gets.chomp
 log_in(user_name, password)
+
