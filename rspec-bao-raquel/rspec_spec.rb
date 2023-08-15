@@ -1,13 +1,13 @@
 require 'rspec'
 require_relative 'rspec.rb'
-
+require 'date'
 # 📚 User Stories
 # As a developer, I can create a Task. ✅
 # As a developer, I can give a Task a title and retrieve it. ✅
 # As a developer, I can give a Task a description and retrieve it. ✅
 # As a developer, I can mark a Task done. Tasks should be initialized as 'in progress'. ✅
-# As a developer, when I print a Task that is done, its status is shown.
-# As a developer, I can give a Task a due date. Hint: Use the built-in Ruby Date class.
+# As a developer, when I print a Task that is done, its status is shown.  ✅
+# As a developer, I can give a Task a due date. Hint: Use the built-in Ruby Date class. ✅
 
 describe 'Task' do
   it 'has to exist' do
@@ -40,15 +40,16 @@ describe 'Task' do
     expect(clean.print_status).to be_a String
     expect(clean.print_status).to eq "Clean the Kitchen is completed"
   end
+
+  it 'can show due date' do
+      clean = Task.new
+      due_date = Date.new(2023,10,07)
+      clean.due_date = due_date
+      expect(clean.due_date).to eq due_date
+  end
 end
 
-
-
-
-
-
-
-
+ 
 
 
 
