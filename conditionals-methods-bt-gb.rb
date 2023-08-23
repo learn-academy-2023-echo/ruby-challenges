@@ -89,6 +89,7 @@
 # Password cannot be the word "password".
 # User password must contain at least one number.
 
+
 def log_in (user, password)
     if user == password
         p 'Your user name and password can not be the same'
@@ -110,3 +111,4 @@ user_name = gets.chomp
 p 'enter your password'
 password = gets.chomp
 log_in(user_name, password)
+
